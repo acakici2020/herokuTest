@@ -6,6 +6,10 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecret'
 queue = []
 
+@app.route('/')
+def index():
+  return "<h1>Stonks Crpyto bot...</h1>"
+
 
 @app.route("/webhook", methods=['POST'])
 def webhook():
