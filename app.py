@@ -1,6 +1,7 @@
 import json
 import time
 from flask import Flask,request, jsonify
+from datetime import datetime
 
 app = Flask(__name__)
 queue = []
@@ -15,6 +16,10 @@ def webhook():
     try:
         data = json.loads(request.data)
         print(data)
+        try:
+            data["time"] = str(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        except:
+            pass
         queue.append(data)
     except:
         pass
