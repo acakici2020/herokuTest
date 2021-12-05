@@ -22,6 +22,26 @@ def webhook():
     return jsonify(res)
 
 
+@app.route("/remove", methods=['POST'])
+def remove():
+    try:
+        data = json.loads(request.data)
+        print(data)
+        for item in queue:
+            try:
+                if item["symbol"] == data["symbol"]:
+                    queue.remove(item)
+            except:
+                pass
+        queue.append(data)
+    except:
+        pass
+    res = {"message": "success"}
+    return jsonify(res)
+
+
+
+
 @app.route("/signals", methods=['GET'])
 def signals():
     res = {"data": queue}
