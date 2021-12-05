@@ -1,9 +1,8 @@
 import json
 import time
-from flask import Flask, render_template, session, request, jsonify
+from flask import Flask,request, jsonify
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'mysecret'
 queue = []
 
 @app.route('/')
