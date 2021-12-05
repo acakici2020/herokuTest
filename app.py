@@ -33,7 +33,7 @@ def remove():
                     queue.remove(item)
             except:
                 pass
-        queue.append(data)
+        # queue.append(data)
     except:
         pass
     res = {"message": "success"}
